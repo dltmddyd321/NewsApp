@@ -2,6 +2,7 @@ package com.example.news_kor;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
@@ -32,7 +33,31 @@ public class MainActivity extends AppCompatActivity {
         enter = findViewById(R.id.entertainment);
         sports = findViewById(R.id.sports);
 
-        ViewPager2 viewPager2 = findViewById(R.id.fragmentContainer);
+        ViewPager viewPager = findViewById(R.id.fragmentContainer);
         tabLayout = findViewById(R.id.newsMenu);
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                //선택된 탭 위치 값에 해당하는 항목 가져오기
+                viewPager.setCurrentItem(tab.getPosition());
+                if(tab.getPosition() == 0 || tab.getPosition() == 1 || tab.getPosition() == 3 || tab.getPosition() == 4 || tab.getPosition() == 5) {
+                    //tab의 위치 값에 따라 pagerAdapter가 갱신
+                    pagerAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
     }
 }
