@@ -17,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
     PagerAdapter pagerAdapter;
     Toolbar toolbar;
 
+    //News API에서 가져온 API key 등록
+    String newsApi = "bef70722d1874f65a72dcb962491fc8c";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
