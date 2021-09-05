@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,7 +14,6 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.google.gson.internal.bind.ReflectiveTypeAdapterFactory;
 
 import java.util.ArrayList;
 
@@ -43,7 +41,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, WebView.class);
+                Intent intent = new Intent(context, NewsWebView.class);
                 intent.putExtra("url",newsModelArrayList.get(position).getUrl());
                 context.startActivity(intent);
             }

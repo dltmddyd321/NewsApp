@@ -24,7 +24,7 @@
                 android:text="News Feed"
                 android:textColor="#03A9F4"
                 android:textSize="20sp"
-                android:textStyle="bold"></TextView>
+                android:textStyle="bold" />
 
         </RelativeLayout>
 

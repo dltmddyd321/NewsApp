@@ -13,9 +13,9 @@ import com.google.android.material.tabs.TabLayout;
 public class MainActivity extends AppCompatActivity {
 
     TabLayout tabLayout;
-    TabItem home, science, health, tech, enter, sports;
+    TabItem mhome, mscience, mhealth, mtech, menter, msports;
     PagerAdapter pagerAdapter;
-    Toolbar toolbar;
+    Toolbar mtoolbar;
 
     //News API에서 가져온 API key 등록
     String newsApi = "bef70722d1874f65a72dcb962491fc8c";
@@ -25,19 +25,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toolbar = findViewById(R.id.toolbar);
+        mtoolbar = findViewById(R.id.toolbar);
         //toolbar를 Activity의 App Bar로 설정
-        setSupportActionBar(toolbar);
+        setSupportActionBar(mtoolbar);
 
-        home = findViewById(R.id.home);
-        science = findViewById(R.id.science);
-        health = findViewById(R.id.health);
-        tech = findViewById(R.id.technology);
-        enter = findViewById(R.id.entertainment);
-        sports = findViewById(R.id.sports);
+        mhome = findViewById(R.id.home);
+        mscience = findViewById(R.id.science);
+        mhealth = findViewById(R.id.health);
+        mtech = findViewById(R.id.technology);
+        menter = findViewById(R.id.entertainment);
+        msports = findViewById(R.id.sports);
 
         ViewPager viewPager = findViewById(R.id.fragmentContainer);
         tabLayout = findViewById(R.id.newsMenu);
+
+        pagerAdapter = new PagerAdapter(getSupportFragmentManager(), 6);
+        viewPager.setAdapter(pagerAdapter);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
