@@ -20,9 +20,12 @@ import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
 
+    //데이터를 가져오기 위한 API 선언
     String newsApi = "bef70722d1874f65a72dcb962491fc8c";
     ArrayList<NewsModel> newsModelArrayList;
     NewsAdapter newsAdapter;
+
+    //한국 기사 가져오기
     String country = "kr";
     private RecyclerView recyclerViewOfHome;
 
@@ -31,6 +34,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.homefragment, null);
 
+        //RecyclerView를 각 Fragment의 View ID에 연결하여 특정 카테고리에 해당하는 화면이 출력
         recyclerViewOfHome = view.findViewById(R.id.recyclerViewHome);
         newsModelArrayList = new ArrayList<>();
         recyclerViewOfHome.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -54,7 +58,7 @@ public class HomeFragment extends Fragment {
                     //news 데이터 배열에 반환된 결과의 기사 내용 추가
                     newsModelArrayList.addAll(response.body().getArticles());
 
-                    //데이터 추가에 따른 Adapter 갱신신
+                    //데이터 추가에 따른 Adapter 갱신
                    newsAdapter.notifyDataSetChanged();
                 }
             }

@@ -21,6 +21,7 @@ public class NewsWebView extends AppCompatActivity {
         webView = findViewById(R.id.webView);
         setSupportActionBar(toolbar);
 
+        //NewsAPI에 등록되어 있는 실제 주소 값을 Intent로 받아 뉴스 웹페이지로 이동
         Intent intent = getIntent();
         String url = intent.getStringExtra("url");
         webView.setWebViewClient(new WebViewClient());
