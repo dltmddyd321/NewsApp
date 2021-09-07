@@ -2,6 +2,7 @@ package com.example.covid_tracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -13,12 +14,16 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView text;
     String key = "SRfaVCVtmpXmxrec%2FKI%2B2lVTRevXOkSEwl7COrPvsLlGcFxZp1rkpft3QlkOFRkGJK%2FOG39WItiH9Bu32AXbHA%3D%3D";
     String data;
+    @SuppressLint("SimpleDateFormat")
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +55,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     String getXmlData() {
+        Date date = new Date();
+        String today = simpleDateFormat.format(date);
         StringBuffer buffer = new StringBuffer();
 
         String queryUrl = "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=" + key
-                + "&pageNo=1&numOfRows=10&startCreateDt=20200310&endCreateDt=20200315";
+                + "&pageNo=1&numOfRows=10&startCreateDt=" + today;
 
         try {
             URL url = new URL(queryUrl);
@@ -119,8 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
                     case XmlPullParser.END_TAG:
 
-                        tag = xmlPullParser.getName();
-                        if(tag.equals("careCnt"))buffer.append("\n");
+                        buffer.append("\n");
                         break;
                 }
                 eventType = xmlPullParser.next();
