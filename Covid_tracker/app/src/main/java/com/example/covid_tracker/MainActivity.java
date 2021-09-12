@@ -119,14 +119,22 @@ public class MainActivity extends AppCompatActivity {
                             buffer.append(xmlPullParser.getText());
                             buffer.append("\n");
                         }
+
+                        else if (tag.equals("stateDt")) {
+                            buffer.append("stateDt : ");
+                            xmlPullParser.next();
+                            buffer.append(xmlPullParser.getText());
+                            buffer.append("\n");
+                        }
                         break;
 
                     case XmlPullParser.TEXT:
                         break;
 
                     case XmlPullParser.END_TAG:
+                        tag = xmlPullParser.getName();
 
-                        buffer.append("\n");
+                        if(tag.equals("item")) buffer.append("\n");
                         break;
                 }
                 eventType = xmlPullParser.next();
