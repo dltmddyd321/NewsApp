@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#606378"
+    android:background="#03A9F4"
     android:orientation="vertical">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieView"
-        android:layout_width="0dp"
-        android:layout_height="250dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/corona" />
@@ -21,14 +22,24 @@
         android:background="@drawable/covid_background"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/today"
+        <Button
+            android:id="@+id/updateBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:textColor="@color/white"
+            android:layout_marginTop="10dp"
+            android:onClick="vOnClick"
+            android:text="정보 갱신" />
+
+        <TextView
+            android:id="@+id/stateDt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:textColor="#FA0501"
             android:textSize="20sp"
+            android:textStyle="bold"
             tools:text="오늘 날짜" />
 
         <TextView
@@ -37,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="45dp"
-            android:textColor="@color/black"
+            android:textColor="#6786EB"
             android:textSize="20sp"
             android:textStyle="bold"
             tools:text="확진자 수" />
@@ -48,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="45dp"
-            android:textColor="@color/black"
+            android:textColor="#6786EB"
             android:textSize="20sp"
             android:textStyle="bold"
             tools:text="격리해제 수" />
@@ -59,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="45dp"
-            android:textColor="@color/black"
+            android:textColor="#D62900"
             android:textSize="20sp"
             android:textStyle="bold"
             tools:text="사망자 수" />
@@ -70,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="45dp"
-            android:textColor="@color/black"
+            android:textColor="#6786EB"
             android:textSize="20sp"
             android:textStyle="bold"
             tools:text="치료 중 환자 수" />

@@ -5,7 +5,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
@@ -16,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     TabItem mhome, mscience, mhealth, mtech, menter, msports;
     PagerAdapter pagerAdapter;
     Toolbar mtoolbar;
+    ImageButton virusBtn;
 
     //News API에서 가져온 API key 등록
     String newsApi = "bef70722d1874f65a72dcb962491fc8c";
@@ -35,6 +40,15 @@ public class MainActivity extends AppCompatActivity {
         mtech = findViewById(R.id.technology);
         menter = findViewById(R.id.entertainment);
         msports = findViewById(R.id.sports);
+        virusBtn = findViewById(R.id.virusBtn);
+
+        virusBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),CovidTracker.class);
+                startActivity(intent);
+            }
+        });
 
         ViewPager viewPager = findViewById(R.id.fragmentContainer);
         tabLayout = findViewById(R.id.newsMenu);
@@ -54,14 +68,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
+            public void onTabUnselected(TabLayout.Tab tab) { }
 
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
+            public void onTabReselected(TabLayout.Tab tab) { }
         });
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
