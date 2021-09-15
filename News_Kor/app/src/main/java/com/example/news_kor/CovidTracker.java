@@ -45,11 +45,11 @@ public class CovidTracker extends AppCompatActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        decideCnt = getDecideCntData();
-                        clearCnt = getClearCntData();
-                        careCnt = getCareCntData();
-                        stateDt = getStateDtData();
-                        deathCnt = getDeathCntData();
+                        decideCnt = getCoronaData("decideCnt","확진자 수 : ","명");
+                        stateDt = getCoronaData("stateDt","현재 일자 : ","명");
+                        clearCnt = getCoronaData("clearCnt","완치 수 : ","명");
+                        deathCnt = getCoronaData("deathCnt", "사망자 수 : ", "명");
+                        careCnt = getCoronaData("careCnt", "치료 중 : ", "명");
 
                         runOnUiThread(new Runnable() {
                             @Override
@@ -67,7 +67,7 @@ public class CovidTracker extends AppCompatActivity {
         }
     }
 
-    String getDecideCntData() {
+    String getCoronaData(String xml, String value, String unit) {
         Date date = new Date();
         String today = simpleDateFormat.format(date);
         StringBuffer buffer = new StringBuffer();
@@ -98,11 +98,11 @@ public class CovidTracker extends AppCompatActivity {
                         tag = xmlPullParser.getName();
 
                         if (tag.equals("item"));
-                        else if (tag.equals("decideCnt")) {
-                            buffer.append("확진자 수 : ");
+                        else if (tag.equals(xml)) {
+                            buffer.append(value);
                             xmlPullParser.next();
                             buffer.append(xmlPullParser.getText());
-                            buffer.append("명");
+                            buffer.append(unit);
                         }
                         break;
 
@@ -123,6 +123,7 @@ public class CovidTracker extends AppCompatActivity {
         return buffer.toString();
     }
 
+    /*
     String getClearCntData() {
         Date date = new Date();
         String today = simpleDateFormat.format(date);
@@ -178,171 +179,5 @@ public class CovidTracker extends AppCompatActivity {
         //buffer.append("파싱 종료\n");
         return buffer.toString();
     }
-
-    String getCareCntData() {
-        Date date = new Date();
-        String today = simpleDateFormat.format(date);
-        StringBuffer buffer = new StringBuffer();
-
-        String queryUrl = "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=" + key
-                + "&pageNo=1&numOfRows=10&startCreateDt=" + today;
-
-        try {
-            URL url = new URL(queryUrl);
-            InputStream inputStream = url.openStream();
-
-            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-            XmlPullParser xmlPullParser = factory.newPullParser();
-            xmlPullParser.setInput(new InputStreamReader(inputStream, "UTF-8"));
-
-            String tag;
-
-            xmlPullParser.next();
-            int eventType = xmlPullParser.getEventType();
-
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                switch (eventType) {
-                    case XmlPullParser.START_DOCUMENT:
-                        buffer.append("파싱 시작\n\n");
-                        break;
-
-                    case XmlPullParser.START_TAG:
-                        tag = xmlPullParser.getName();
-
-                        if (tag.equals("item"));
-                        else if (tag.equals("careCnt")) {
-                            buffer.append("치료 중 : ");
-                            xmlPullParser.next();
-                            buffer.append(xmlPullParser.getText());
-                            buffer.append("명");
-                        }
-                        break;
-
-                    case XmlPullParser.TEXT:
-                        break;
-
-                    case XmlPullParser.END_TAG:
-                        tag = xmlPullParser.getName();
-
-                        break;
-                }
-                eventType = xmlPullParser.next();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        //buffer.append("파싱 종료\n");
-        return buffer.toString();
-    }
-
-    String getStateDtData() {
-        Date date = new Date();
-        String today = simpleDateFormat.format(date);
-        StringBuffer buffer = new StringBuffer();
-
-        String queryUrl = "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=" + key
-                + "&pageNo=1&numOfRows=10&startCreateDt=" + today;
-
-        try {
-            URL url = new URL(queryUrl);
-            InputStream inputStream = url.openStream();
-
-            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-            XmlPullParser xmlPullParser = factory.newPullParser();
-            xmlPullParser.setInput(new InputStreamReader(inputStream, "UTF-8"));
-
-            String tag;
-
-            xmlPullParser.next();
-            int eventType = xmlPullParser.getEventType();
-
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                switch (eventType) {
-                    case XmlPullParser.START_DOCUMENT:
-                        buffer.append("파싱 시작\n\n");
-                        break;
-
-                    case XmlPullParser.START_TAG:
-                        tag = xmlPullParser.getName();
-
-                        if (tag.equals("item"));
-                        else if (tag.equals("stateDt")) {
-                            buffer.append("현재 일자 : ");
-                            xmlPullParser.next();
-                            buffer.append(xmlPullParser.getText());
-                        }
-                        break;
-
-                    case XmlPullParser.TEXT:
-                        break;
-
-                    case XmlPullParser.END_TAG:
-                        tag = xmlPullParser.getName();
-
-                        break;
-                }
-                eventType = xmlPullParser.next();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        //buffer.append("파싱 종료\n");
-        return buffer.toString();
-    }
-
-    String getDeathCntData() {
-        Date date = new Date();
-        String today = simpleDateFormat.format(date);
-        StringBuffer buffer = new StringBuffer();
-
-        String queryUrl = "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=" + key
-                + "&pageNo=1&numOfRows=10&startCreateDt=" + today;
-
-        try {
-            URL url = new URL(queryUrl);
-            InputStream inputStream = url.openStream();
-
-            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-            XmlPullParser xmlPullParser = factory.newPullParser();
-            xmlPullParser.setInput(new InputStreamReader(inputStream, "UTF-8"));
-
-            String tag;
-
-            xmlPullParser.next();
-            int eventType = xmlPullParser.getEventType();
-
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                switch (eventType) {
-                    case XmlPullParser.START_DOCUMENT:
-                        buffer.append("파싱 시작\n\n");
-                        break;
-
-                    case XmlPullParser.START_TAG:
-                        tag = xmlPullParser.getName();
-
-                        if (tag.equals("item"));
-                        else if (tag.equals("deathCnt")) {
-                            buffer.append("사망자 수 : ");
-                            xmlPullParser.next();
-                            buffer.append(xmlPullParser.getText());
-                            buffer.append("명");
-                        }
-                        break;
-
-                    case XmlPullParser.TEXT:
-                        break;
-
-                    case XmlPullParser.END_TAG:
-                        tag = xmlPullParser.getName();
-
-                        break;
-                }
-                eventType = xmlPullParser.next();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        //buffer.append("파싱 종료\n");
-        return buffer.toString();
-    }
+     */
 }
