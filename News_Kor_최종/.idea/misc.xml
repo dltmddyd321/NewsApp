@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/psych/AndroidStudioProjects/News_Kor/app/src/main/res/drawable/covid_background.xml" value="0.35743589743589743" />
+        <entry key="..\:/Users/psych/AndroidStudioProjects/News_Kor/app/src/main/res/layout/activity_main.xml" value="0.3515625" />
+        <entry key="..\:/Users/psych/AndroidStudioProjects/News_Kor/app/src/main/res/layout/activity_web_view.xml" value="0.35052083333333334" />
+        <entry key="..\:/Users/psych/AndroidStudioProjects/News_Kor/app/src/main/res/layout/covid_tracker.xml" value="0.346875" />
+        <entry key="..\:/Users/psych/AndroidStudioProjects/News_Kor/app/src/main/res/layout/entertainmentfragment.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/psych/AndroidStudioProjects/News_Kor/app/src/main/res/layout/healthfragment.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/psych/AndroidStudioProjects/News_Kor/app/src/main/res/layout/homefragment.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/psych/AndroidStudioProjects/News_Kor/app/src/main/res/layout/layout_item.xml" value="0.35052083333333334" />
+        <entry key="..\:/Users/psych/AndroidStudioProjects/News_Kor/app/src/main/res/layout/sciencefragment.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/psych/AndroidStudioProjects/News_Kor/app/src/main/res/layout/sportsfragment.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/psych/AndroidStudioProjects/News_Kor/app/src/main/res/layout/technologyfragment.xml" value="0.36614583333333334" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/covid_tracker.xml" value="0.335" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
