@@ -47,7 +47,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             }
         });
 
-        holder.time.setText("Published At:-"+newsModelArrayList.get(position).getPublishedAt());
+        holder.time.setText("출간 일자:-"+newsModelArrayList.get(position).getPublishedAt());
         holder.author.setText(newsModelArrayList.get(position).getAuthor());
         holder.heading.setText(newsModelArrayList.get(position).getTitle());
         holder.content.setText(newsModelArrayList.get(position).getDescription());
