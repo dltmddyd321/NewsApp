@@ -11,7 +11,7 @@ public interface NewsInterface {
 
     @GET("top-headlines")
     Call<MainNews> getNews(
-            //헤드라인 뉴스 정보를 가져오기
+            //국가에 해당하는 뉴스 목록 가져오기
             @Query("country") String country,
             @Query("pageSize") int pagesize,
             @Query("apiKey") String apikey

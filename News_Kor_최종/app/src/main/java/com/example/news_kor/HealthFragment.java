@@ -62,9 +62,7 @@ public class HealthFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<MainNews> call, Throwable t) {
-
-            }
+            public void onFailure(Call<MainNews> call, Throwable t) { }
         });
     }
 }

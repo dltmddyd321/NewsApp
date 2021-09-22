@@ -17,9 +17,9 @@ import com.google.android.material.tabs.TabLayout;
 public class MainActivity extends AppCompatActivity {
 
     TabLayout tabLayout;
-    TabItem mhome, mscience, mhealth, mtech, menter, msports;
+    TabItem home, science, health, tech, enter, sports;
     PagerAdapter pagerAdapter;
-    Toolbar mtoolbar;
+    Toolbar toolbar;
     ImageButton virusBtn;
 
     //News API에서 가져온 API key 등록
@@ -30,16 +30,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mtoolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         //toolbar를 Activity의 App Bar로 설정
-        setSupportActionBar(mtoolbar);
+        setSupportActionBar(toolbar);
 
-        mhome = findViewById(R.id.home);
-        mscience = findViewById(R.id.science);
-        mhealth = findViewById(R.id.health);
-        mtech = findViewById(R.id.technology);
-        menter = findViewById(R.id.entertainment);
-        msports = findViewById(R.id.sports);
+        home = findViewById(R.id.home);
+        science = findViewById(R.id.science);
+        health = findViewById(R.id.health);
+        tech = findViewById(R.id.technology);
+        enter = findViewById(R.id.entertainment);
+        sports = findViewById(R.id.sports);
         virusBtn = findViewById(R.id.virusBtn);
 
         virusBtn.setOnClickListener(new View.OnClickListener() {
@@ -50,9 +50,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //구현한 View가 출력될 컨테이너 및 탭 레이아웃 연결
         ViewPager viewPager = findViewById(R.id.fragmentContainer);
         tabLayout = findViewById(R.id.newsMenu);
 
+        //Adapter 통해 6개의 프래그먼트 가져오도록 설정
         pagerAdapter = new PagerAdapter(getSupportFragmentManager(), 6);
         viewPager.setAdapter(pagerAdapter);
 

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,6 +28,8 @@ public class EntertainmentFragment extends Fragment {
 
     //한국 기사 가져오기
     String country = "kr";
+
+    //연동할 뷰와 카테고리 선언
     private RecyclerView recyclerViewOfEnter;
     private String category = "entertainment";
 
@@ -62,9 +65,7 @@ public class EntertainmentFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<MainNews> call, Throwable t) {
-
-            }
+            public void onFailure(Call<MainNews> call, Throwable t) { }
         });
     }
 }

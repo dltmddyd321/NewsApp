@@ -14,8 +14,10 @@
         <entry key="..\:/Users/psych/AndroidStudioProjects/News_Kor/app/src/main/res/layout/sciencefragment.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/psych/AndroidStudioProjects/News_Kor/app/src/main/res/layout/sportsfragment.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/psych/AndroidStudioProjects/News_Kor/app/src/main/res/layout/technologyfragment.xml" value="0.36614583333333334" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_web_view.xml" value="0.21693840579710144" />
         <entry key="app/src/main/res/layout/covid_tracker.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/layout_item.xml" value="0.21693840579710144" />
       </map>
     </option>
   </component>
