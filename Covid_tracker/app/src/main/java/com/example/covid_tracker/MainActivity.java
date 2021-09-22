@@ -20,7 +20,7 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
     TextView text;
-    String key = "SRfaVCVtmpXmxrec%2FKI%2B2lVTRevXOkSEwl7COrPvsLlGcFxZp1rkpft3QlkOFRkGJK%2FOG39WItiH9Bu32AXbHA%3D%3D";
+    String key = "API 인증키";
     String data;
     @SuppressLint("SimpleDateFormat")
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
