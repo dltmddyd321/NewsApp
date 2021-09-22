@@ -22,6 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="News Feed"
+                android:layout_marginTop="10dp"
                 android:textColor="#03A9F4"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -57,7 +58,7 @@
             android:id="@+id/home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Home">
+            android:text="주요 뉴스">
 
         </com.google.android.material.tabs.TabItem>
 
@@ -65,7 +66,7 @@
             android:id="@+id/sports"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sports">
+            android:text="스포츠">
 
         </com.google.android.material.tabs.TabItem>
 
@@ -73,7 +74,7 @@
             android:id="@+id/health"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Health">
+            android:text="건강">
 
         </com.google.android.material.tabs.TabItem>
 
@@ -81,7 +82,7 @@
             android:id="@+id/science"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Science">
+            android:text="과학">
 
         </com.google.android.material.tabs.TabItem>
 
@@ -89,7 +90,7 @@
             android:id="@+id/entertainment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Entertainment">
+            android:text="문화">
 
         </com.google.android.material.tabs.TabItem>
 
@@ -97,7 +98,7 @@
             android:id="@+id/technology"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="technology">
+            android:text="기술">
 
         </com.google.android.material.tabs.TabItem>
 
