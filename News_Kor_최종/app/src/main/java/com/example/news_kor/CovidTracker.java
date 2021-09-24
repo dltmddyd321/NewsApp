@@ -20,7 +20,7 @@ import java.util.Date;
 public class CovidTracker extends AppCompatActivity {
 
     TextView state, decide, clear, death, care;
-    String key = "SRfaVCVtmpXmxrec%2FKI%2B2lVTRevXOkSEwl7COrPvsLlGcFxZp1rkpft3QlkOFRkGJK%2FOG39WItiH9Bu32AXbHA%3D%3D";
+    String key = "API 인증키";
     String decideCnt, clearCnt, careCnt, stateDt, deathCnt;
 
     //현재 날짜를 API 요청을 위해 반환

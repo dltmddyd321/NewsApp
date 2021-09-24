@@ -22,7 +22,7 @@ import retrofit2.Response;
 public class EntertainmentFragment extends Fragment {
 
     //데이터를 가져오기 위한 API 선언
-    String newsApi = "bef70722d1874f65a72dcb962491fc8c";
+    String newsApi = "News API 인증키";
     ArrayList<NewsModel> newsModelArrayList;
     NewsAdapter newsAdapter;
 
